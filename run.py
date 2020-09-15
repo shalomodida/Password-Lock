@@ -2,42 +2,42 @@
 
 import random
 from user import User
-from credentials import Credentials
+from documents import Documents
 
-# Functions to add credentials
-
-
-def create_new_credential(account_name, account_password):
-    """Function to create a new account and its credentials"""
-    new_credential = Credentials(account_name, account_password)
-    return new_credential
+# Functions to add documents
 
 
-def save_new_credential(credentials):
+def create_new_document(account_name, account_password):
+    """Function to create a new account and its documents"""
+    new_document = Documents(account_name, account_password)
+    return new_document
+
+
+def save_new_document(documents):
     """Function to save the newly created account and password"""
-    credentials.save_credentials()
+    documents.save_documents()
 
 
-def find_credential(account_name):
-    """Function that finds credentials based on account_name given"""
-    return Credentials.find_by_name(account_name)
+def find_document(account_name):
+    """Function that finds documents based on account_name given"""
+    return Documents.find_by_name(account_name)
 
 
-def check_existing_credentials(name):
-    """Method that checks whether a particular account and its credentials exist based on searched account_name"""
-    return Credentials.find_by_name(name)
+def check_existing_documents(name):
+    """Method that checks whether a particular account and its documents exist based on searched account_name"""
+    return Documents.find_by_name(name)
 
 
-def display_credentials():
-    """Function which displays all saved credentials"""
-    return Credentials.display_credentials()
+def display_documents():
+    """Function which displays all saved documents"""
+    return Documents.display_documents()
 
 
-def delete_credential(credentials):
+def delete_documents(documents):
     """
-    Method that deletes credentials
+    Method that deletes documents
     """
-    return Credentials.delete_credential(credentials)
+    return Documents.delete_document(documents)
 
 
 def main():
@@ -124,7 +124,7 @@ def main():
                                 else:
                                     print("Please enter a valid Code")
 
-                                save_new_credential(create_new_credential(
+                                save_new_documents(create_new_document(
                                     account_name, account_password))
                             elif choice == 'n':
                                 break
@@ -133,13 +133,13 @@ def main():
                     elif option == '1':
                         while True:
                             print("Below is a list of all your credentials")
-                            if display_credentials():
+                            if display_documents():
 
-                                for credential in display_credentials():
+                                for document in display_documents():
                                     print(
-                                        f"ACCOUNT NAME:{credential.account_name}")
+                                        f"ACCOUNT NAME:{document.account_name}")
                                     print(
-                                        f"PASSWORD:{credential.account_password}")
+                                        f"PASSWORD:{document.account_password}")
 
                             else:
                                 print('\n')
@@ -173,15 +173,15 @@ def main():
 
                             search_name = input()
 
-                            if check_existing_credentials(search_name):
-                                search_credential = find_credential(
+                            if check_existing_documents(search_name):
+                                search_document = find_document(
                                     search_name)
                                 print(
-                                    f"ACCOUNT NAME: {search_credential.account_name} \n PASSWORD: {search_credential.account_password}")
+                                    f"ACCOUNT NAME: {search_document.account_name} \n PASSWORD: {search_document.account_password}")
                                 print("Delete? y/n")
                                 sure = input().lower()
                                 if sure == 'y':
-                                    delete_credential(search_credential)
+                                    delete_document(search_document)
                                     print("Account SUCCESSFULLY deleted")
                                     break
                                 elif sure == 'n':
@@ -196,15 +196,15 @@ def main():
                             print("Continue? y/n")
                             option2 = input().lower()
                             if option2 == 'y':
-                                print("Enter an account name to find credentials")
+                                print("Enter an account name to find documents")
 
                                 search_name = input()
 
-                                if check_existing_credentials(search_name):
-                                    search_credential = find_credential(
+                                if check_existing_documents(search_name):
+                                    search_document = find_document(
                                         search_name)
                                     print(
-                                        f"ACCOUNT NAME: {search_credential.account_name} \n PASSWORD: {search_credential.account_password}")
+                                        f"ACCOUNT NAME: {search_document.account_name} \n PASSWORD: {search_document.account_password}")
                                 else:
                                     print("That Contact Does not exist")
                             elif option2 == 'n':
@@ -278,7 +278,7 @@ def main():
                             else:
                                 print("Please enter a valid Code")
 
-                            save_new_credential(create_new_credential(
+                            save_new_document(create_new_document(
                                 account_name, account_password))
                         elif choice == 'n':
                             break
@@ -287,13 +287,13 @@ def main():
                 elif option == '1':
                     while True:
                         print("Below is a list of all your credentials")
-                        if display_credentials():
+                        if display_documents():
 
-                            for credential in display_credentials():
+                            for document in display_documents():
                                 print(
-                                    f"ACCOUNT NAME:{credential.account_name}")
+                                    f"ACCOUNT NAME:{document.account_name}")
                                 print(
-                                    f"PASSWORD:{credential.account_password}")
+                                    f"PASSWORD:{document.account_password}")
 
                         else:
                             print('\n')
@@ -326,18 +326,18 @@ def main():
 
                 elif option == '3':
                     while True:
-                        print("Search for credential to delete")
+                        print("Search for document to delete")
 
                         search_name = input()
 
-                        if check_existing_credentials(search_name):
-                            search_credential = find_credential(search_name)
+                        if check_existing_documents(search_name):
+                            search_document = find_document(search_name)
                             print(
-                                f"ACCOUNT NAME: {search_credential.account_name} \n PASSWORD: {search_credential.account_password}")
+                                f"ACCOUNT NAME: {search_document.account_name} \n PASSWORD: {search_document.account_password}")
                             print("Delete? y/n")
                             sure = input().lower()
                             if sure == 'y':
-                                delete_credential(search_credential)
+                                delete_document(search_document)
                                 print("Account SUCCESSFULLY deleted")
                                 break
                             elif sure == 'n':
@@ -352,15 +352,15 @@ def main():
                         print("Continue? y/n")
                         option2 = input().lower()
                         if option2 == 'y':
-                            print("Enter an account name to find credentials")
+                            print("Enter an account name to find documents")
 
                             search_name = input()
 
-                            if check_existing_credentials(search_name):
-                                search_credential = find_credential(
+                            if check_existing_documents(search_name):
+                                search_document = find_document(
                                     search_name)
                                 print(
-                                    f"ACCOUNT NAME: {search_credential.account_name} \n PASSWORD: {search_credential.account_password}")
+                                    f"ACCOUNT NAME: {search_document.account_name} \n PASSWORD: {search_document.account_password}")
                             else:
                                 print("That Contact Does not exist")
                         elif option2 == 'n':

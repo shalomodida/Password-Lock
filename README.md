@@ -1,5 +1,5 @@
 ## Project Name
- - Password-lock
+ - Password-locker
 ## Project Author
 - Shalom Pauline Odida
 ## Project Description
@@ -22,12 +22,14 @@
 ## BDD
  1. cu - Creates a new account
  2. lg - logs  in
- 3. ex - Exit the ap
+ 3. ex - exit the app
 The user will see the following commands while signing in:
 
- 1. ap - Add password
- 3. cp - Copy password to clipboard
- 4. lo - Log out
+ 1. gp -Generate random password
+ 3. n - Create your own password
+ 4. y - for yes
+ 5. n - for no
+
 ## Contacts Info
 - odidapauline@gmail.com
 - Github-Shalomodida
